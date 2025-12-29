@@ -23,22 +23,11 @@ include_directories(
 
 file(GLOB_RECURSE MY_SOURCES "src/*.c")
 
-file(GLOB_RECURSE CMSIS_SOURCES
-    "${CMSIS_ROOT}/Source/MatrixFunctions/*.c"
-    "${CMSIS_ROOT}/Source/CommonTables/*.c"
-    "${CMSIS_ROOT}/Source/BasicMathFunctions/*.c"
+set(CMSIS_SOURCES
+    "${CMSIS_ROOT}/Source/MatrixFunctions/MatrixFunctions.c"
+    "${CMSIS_ROOT}/Source/CommonTables/CommonTables.c"
+    "${CMSIS_ROOT}/Source/BasicMathFunctions/BasicMathFunctions.c"
 )
-
-list(FILTER CMSIS_SOURCES EXCLUDE REGEX ".*/_.*\\.c$")
-list(FILTER CMSIS_SOURCES EXCLUDE REGEX ".*/MatrixFunctions\\.c$")
-list(FILTER CMSIS_SOURCES EXCLUDE REGEX ".*/CommonTables\\.c$")
-list(FILTER CMSIS_SOURCES EXCLUDE REGEX ".*/BasicMathFunctions\\.c$")
-list(FILTER CMSIS_SOURCES EXCLUDE REGEX ".*/MatrixFunctionsF16\\.c$")
-list(FILTER CMSIS_SOURCES EXCLUDE REGEX ".*/BasicMathFunctionsF16\\.c$")
-list(FILTER CMSIS_SOURCES EXCLUDE REGEX ".*F16\\.c$")
-list(FILTER CMSIS_SOURCES EXCLUDE REGEX ".*F128\\.c$")
-list(FILTER CMSIS_SOURCES EXCLUDE REGEX ".*_q15\\.c$")
-list(FILTER CMSIS_SOURCES EXCLUDE REGEX ".*_q31\\.c$")
 
 message(STATUS "CMSIS_ROOT is: ${CMSIS_ROOT}")
 message(STATUS "CMSIS_SOURCES found: ${CMSIS_SOURCES}")
