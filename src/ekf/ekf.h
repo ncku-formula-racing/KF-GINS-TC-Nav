@@ -33,6 +33,4 @@ void EKF_Predict(EKF_Context *ctx, arm_matrix_instance_f32 *u);
 
 void EKF_Update(EKF_Context *ctx, arm_matrix_instance_f32 *H, arm_matrix_instance_f32 *z);
 
-void EKF_PrintMatrix(const char* name, arm_matrix_instance_f32 *mat);
-
 #endif

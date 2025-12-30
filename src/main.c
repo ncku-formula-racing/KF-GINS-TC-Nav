@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <math.h>
 #include "ekf/ekf.h"
+#include "util.h"
+#include "utils/utils.h"
 
 // Simple Gaussian noise generator
 float32_t gaussian_noise(float32_t std_dev) {
@@ -26,6 +28,9 @@ int main() {
 
     EKF_Context ekf;
     EKF_Init(&ekf, n, m, w_b, x_b, p_b, a_b, q_b, r_b);
+
+    char matName[] = "abc";
+    print_matrix(matName, &ekf.A);
 
     // 2. Observation Matrix H = [[1, 0]] (We only measure position)
     float32_t h_data[2] = {1.0f, 0.0f};
